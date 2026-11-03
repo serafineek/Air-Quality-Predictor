@@ -75,6 +75,41 @@
   border-radius: var(--radius-sm);
 }
 
+.user-profile-link {
+  text-decoration: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.user-profile-link:hover,
+.user-profile-link.active {
+  border-color: var(--accent-primary);
+  background: var(--accent-primary-light);
+}
+
+.navbar-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nav-icon {
+  margin-right: 0.25rem;
+  vertical-align: middle;
+}
+
+.navbar-city-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.15rem 0.5rem;
+  background: rgba(13, 148, 136, 0.15);
+  color: var(--accent-primary);
+  border-radius: 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
 .user-icon {
   color: var(--accent-primary);
   font-size: 1rem;

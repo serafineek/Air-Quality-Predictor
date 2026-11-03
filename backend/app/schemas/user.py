@@ -25,9 +25,32 @@ class UserResponse(BaseModel):
     id: int
     email: str
     username: str
+    city: str | None = None
+    city_latitude: float | None = None
+    city_longitude: float | None = None
     created_at: datetime
 
     model_config = {"from_attributes": True}
+
+
+class UserProfileUpdate(BaseModel):
+    """Schema for updating user profile."""
+
+    city: str | None = None
+    city_latitude: float | None = None
+    city_longitude: float | None = None
+
+
+class CitySearchResult(BaseModel):
+    """Schema for city search suggestions from geocoding."""
+
+    id: int | None = None
+    name: str
+    latitude: float
+    longitude: float
+    country: str | None = None
+    country_code: str | None = None
+    admin1: str | None = None  # Województwo / region
 
 
 class Token(BaseModel):
