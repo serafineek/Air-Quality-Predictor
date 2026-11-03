@@ -84,3 +84,4 @@ Air-Quality-Predictor/
 ## 📝 Licencja
 
 Projekt studencki — ISI.
+

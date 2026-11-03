@@ -5,12 +5,15 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Dashboard from './pages/Dashboard';
 import Navbar from './components/Navbar';
+import Footer from './components/Footer';
 import ProtectedRoute from './components/ProtectedRoute';
 import { useAuth } from './context/AuthContext';
+import { useTheme } from './context/ThemeContext';
 import './App.css';
 
 function App() {
   const { token, loading } = useAuth();
+  const { theme } = useTheme();
 
   if (loading) {
     return null;
@@ -46,6 +49,7 @@ function App() {
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
+      <Footer />
       <ToastContainer
         position="top-right"
         autoClose={4000}
@@ -56,7 +60,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="colored"
+        theme={theme === 'dark' ? 'dark' : 'light'}
       />
     </div>
   );
