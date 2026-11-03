@@ -24,14 +24,7 @@ export function AuthProvider({ children }) {
   }, []);
 
   const login = useCallback(async (email, password) => {
-    // OAuth2 password flow expects form-urlencoded with "username" field
-    const formData = new URLSearchParams();
-    formData.append('username', email);
-    formData.append('password', password);
-
-    const response = await api.post('/auth/login', formData, {
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    });
+    const response = await api.post('/auth/login', { email, password });
 
     const { access_token, user: userData } = response.data;
     localStorage.setItem('token', access_token);
